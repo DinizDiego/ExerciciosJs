@@ -11,30 +11,16 @@
     <section class="calc-bhaskara">
         <h1>Fórmula do 2 Grau</h1>
         <form class="form" id="form">
-          <label for="a">
-            Entre com o valor de a:
-            <input name="a" id="a" placeholder="a" type="number" />
-          </label>
-          <label for="kilos">
-            Entre com o valor de b:
-            <input name="b" id="b" placeholder="b" type="number" />
-          </label>
-          <label for="altura">
-            Entre com o valor de c:
-            <input name="c" id="c" placeholder="c" type="number" />
-          </label>
-          <div class="result">
-            <label for="x1">
-              x1
-              <input disabled="disabled" name="x1" id="x1" />
-            </label>
-            <label for="x2">
-              x2
-              <input disabled="disabled" name="x2" id="x2" />
-            </label>
-          </div>
-          <button>Calcular</button><br><br>
+            <label name="tpNume">Entre com o valor de a:</label>
+            <input type="number" name="tpNume" id="tpNume"/><br><br>            
+            
+            <label name="tsNume">Entre com o valor de b:</label>
+            <input type="number" name="tsNume" id="tsNume"/><br><br>
+            
+            <label name="ttNum">Entre com o valor de c:</label>
+            <input type="number" name="ttNum" id="ttNum"/><br><br>                      
         </form>
+        <button type="submit" onclick="bhaskara()"> Calcular </button><br><br>
     </section>
 
     <form>
@@ -52,7 +38,12 @@
     <button type="submit"onclick="tabuada()"> Tabuada </button><br><br>
     <button type="submit"onclick="potencia()"> Potência </button><br><br>
     <button type="submit"onclick="raiz()"> Raiz </button><br><br>
-    
+    <button type="submit"onclick="imparPar()"> Ímpar ou par </button><br><br>
+    <button type="submit"onclick="negativoPositivo()"> Negativo ou positivo </button><br><br>
+    <button type="submit"onclick="umDez()"> Números de um a dez </button><br><br>
+    <button type="submit"onclick="parVinte()"> Números pares entre 0 e 20 </button><br><br>
+    <button type="submit"onclick="calCem()"> Soma de números de 1 a 100 </button><br><br>
+
     <textArea id="resultado" rows="26" cols="50" readonly></textArea><br><br>
 
 </body>

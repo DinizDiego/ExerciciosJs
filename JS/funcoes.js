@@ -96,53 +96,123 @@ function raiz(){
     document.getElementById("resultado").innerHTML = "\n" + resNum1 + "\n\n" + resNum2;
 }//fim do método
 
-const $form = document.querySelector('form');
-const $a = document.querySelector('#a');
-const $b = document.querySelector('#b');
-const $c = document.querySelector('#c');
-const $x1 = document.querySelector('#x1');
-const $x2 = document.querySelector('#x2');
+function bhaskara(){
+  var a;
+  var b;
+  var c;
+  var delta;
+  var x1;
+  var x2;
+  var resposta;
 
-function bhaskara() {
-  const a = $a.value;
-  const b = $b.value;
-  const c = $c.value;
+  a = parseInt(document.getElementById("tpNume").value);
+  b = parseInt(document.getElementById("tsNume").value);
+  c = parseInt(document.getElementById("ttNum").value);
 
-  const delta = b * b - 4 * a * c;
+  delta = Math.pow(b,2) - 4 * a * c;
 
-  if (!a || !b || !c) {
-    createAlert('Insira os valores de a, b e c');
-  } else if (a == 0) {
-    createAlert('O valor de <strong>a</strong>, deve ser diferente de 0');
-  } else if (delta < 0) {
-    createAlert('Sem raízes reais');
-  } else {
-    const x1 = (-b + Math.sqrt(delta)) / (2 * a);
-    const x2 = (-b - Math.sqrt(delta)) / (2 * a);
-    $x1.value = x1;
-    $x2.value = x2;
+  if (delta <= 0){
+      resposta = "Impossível fazer a operação. O resultado de delta não pode ser menor ou igual a zero";
+  }else{
+
+      x1 = (-b + Math.sqrt(delta)) / (2 * a)
+      x2 = (-b - Math.sqrt(delta)) / (2 * a)
   }
-}
+     
+  document.getElementById("resultado").innerHTML = "Delta: " + delta + " \n\nX1: " + x1 + "\n\nX2: " + x2;
+}//fim do metodo
 
-function createAlert(msg) {
-  document
-    .querySelector('body')
-    .insertAdjacentHTML('beforebegin', `<div class='alert'>${msg}</div>`);
+function imparPar(){
+  var num1;//Declarando uma variável
+  var num2;
+  var res;
+  var res2;
 
-  setTimeout(function () {
-    deleteAlert();
-  }, 3000);
-}
-
-function deleteAlert() {
-  const list = document.querySelectorAll('.alert');
-  for (const item of list) {
-    item.remove();
+  //Coletando dados dos campos
+  num1 = parseInt(document.getElementById("tpNum").value);
+  num2 = parseInt(document.getElementById("tsNum").value);
+ 
+  //Realizando cálculos
+  if(num1%2 == 0){
+    res = "Par";    
   }
-}
+  else{
+    res = "Ímpar";    
+  }  
 
-$form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  bhaskara();
-});
+  if(num2%2 == 1){
+    res2 = "Par";    
+  }
+  else{
+    res2 = "Ímpar";    
+  }  
+  document.getElementById("resultado").innerHTML = "O número " + num1 + " é: " + res + "\n\n" + "O número " + num2 + " é: " + res2;
+}//fim do método
 
+function negativoPositivo(){
+  var num1;//Declarando uma variável
+  var num2;
+  var res1;
+  var res2;
+
+  //Coletando dados dos campos
+  num1 = parseInt(document.getElementById("tpNum").value);
+  num2 = parseInt(document.getElementById("tsNum").value);
+
+  //Cálculo
+  if(num1 >= 1){
+    res1 = "Positivo"
+  }
+  else if(num1 == 0){
+    res1 = "Zero"
+  }
+  else{  
+    res1 = "Negativo"
+  }
+
+  if(num2 >= 1){
+    res2 = "Positivo"
+  }
+  else if(num2 == 0){
+    res2 = "Zero"
+  }
+  else{  
+    res2 = "Negativo"
+  }
+  document.getElementById("resultado").innerHTML = num1 + " é: " + res1 + "\n\n" + num2 + " é: " + res2;
+}//fim do método
+
+function umDez(){
+  var res = 0;
+
+  var res = "Impressão de números:\n ";
+
+  for(i = 1; i <= 10; i++){
+    res += "\nO " + i + "º" + " número é: " + i;
+  }
+  document.getElementById("resultado").value = res;
+}//fim do método
+
+function parVinte(){
+  var res = 0;
+  var j = 1;
+
+  var res = "Impressão de números pares entre 0 e 20:\n ";
+
+  for(i = 1; i <= 20; i++){
+   if(i%2 == 0){
+     res += "\nO " + j + "º" + " número par entre 0 e 20 é: " + i;    
+     j++;
+    }
+  }    
+  document.getElementById("resultado").innerHTML = res;
+}//fim do método
+
+function calCem(){
+  var soma = 0
+
+  for(i = 1; i <= 100; i++){
+     soma += i;
+  }    
+  document.getElementById("resultado").innerHTML = soma
+}//fim do método
